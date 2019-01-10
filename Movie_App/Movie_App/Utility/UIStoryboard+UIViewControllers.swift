@@ -32,6 +32,17 @@ extension UIStoryboard {
         }
         return viewController
     }
-    
+    var movieListPageContainerViewController: MovieListPageContainerViewController {
+        guard let viewController = instantiateViewController(withIdentifier: String(describing: MovieListPageContainerViewController.self)) as? MovieListPageContainerViewController else {
+            fatalError(String(describing: MovieListPageContainerViewController.self) + "\(NSLocalizedString("couldn't be found in Storyboard file", comment: ""))")
+        }
+        return viewController
+    }
+    var movieListViewController: MovieListViewController {
+        guard let viewController = instantiateViewController(withIdentifier: String(describing: MovieListViewController.self)) as? MovieListViewController else {
+            fatalError(String(describing: MovieListViewController.self) + "\(NSLocalizedString("couldn't be found in Storyboard file", comment: ""))")
+        }
+        return viewController
+    }
     
 }

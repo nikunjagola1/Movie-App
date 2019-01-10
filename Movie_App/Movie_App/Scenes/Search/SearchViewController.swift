@@ -49,6 +49,7 @@ extension SearchViewController{
         self.navigationController?.navigationBar.barTintColor = Colors.searchNavigationBar
         self.navigationItem.hidesBackButton = true
         self.navigationItem.titleView = searchBar
+        self.tblHistory.inputAccessoryView?.backgroundColor = .black
     }
     private func setupBinding(viewModel: SearchViewModel){
         super.setupBindingForBaseViewModel(viewModel: viewModel)

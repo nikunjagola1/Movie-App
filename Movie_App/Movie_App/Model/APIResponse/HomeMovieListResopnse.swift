@@ -34,11 +34,5 @@ class HomeMovieListResopnse: Codable{
     }
 }
 
-class Movie: Codable{
-    var id: String?
-    var title: String?
-    var posterPath: String?
-    var presaleFlag: Int?
-}
 
 

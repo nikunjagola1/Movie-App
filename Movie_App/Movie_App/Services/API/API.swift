@@ -25,7 +25,7 @@ class API {
     // Call Get Movie List API
     func getHomeMovieList() -> Observable<APIResult<HomeMovieListResopnse>> {
         
-        return API.handleDataRequest(dataRequest: APIManager.shared.requestObservable(api: APIRouter.getHomeMovieList)).map({ (response) -> APIResult<HomeMovieListResopnse> in
+        return API.handleDataRequest(dataRequest: APIManager.shared.requestObservable(api: APIRouter.searchMovie)).map({ (response) -> APIResult<HomeMovieListResopnse> in
             let isSuccessfullTuple = API.isAPISuccessful(response: response)
             if !isSuccessfullTuple.0{
                 return APIResult.failure(error: isSuccessfullTuple.1!)
