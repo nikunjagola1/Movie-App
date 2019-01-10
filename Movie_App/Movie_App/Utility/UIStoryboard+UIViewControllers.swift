@@ -26,7 +26,12 @@ extension UIStoryboard {
         }
         return viewController
     }
-    
+    var searchViewConroller: SearchViewController {
+        guard let viewController = instantiateViewController(withIdentifier: String(describing: SearchViewController.self)) as? SearchViewController else {
+            fatalError(String(describing: SearchViewController.self) + "\(NSLocalizedString("couldn't be found in Storyboard file", comment: ""))")
+        }
+        return viewController
+    }
     
     
 }

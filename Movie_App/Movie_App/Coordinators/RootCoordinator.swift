@@ -12,7 +12,7 @@ import UIKit
 import RxCocoa
 
 class RootCoordinator: Coordinator<Void>{
-    typealias Dependencies = HasWindow & HasAPI
+    typealias Dependencies = HasWindow & HasAPI & HasSearchHistory
     
     private let navigationController:UINavigationController
     private let dependencies: Dependencies
@@ -42,11 +42,17 @@ class RootCoordinator: Coordinator<Void>{
     }
     
     private func showSearchScreen(){
-        self.navigationController.pushViewController(UIViewController(), animated: true)
+        let viewModel = SearchViewModel.init(dependencies: self.dependencies)
+        let viewController = UIStoryboard.main.searchViewConroller
+        viewController.viewModel = viewModel
+        let navVC = UINavigationController(rootViewController: viewController)
+        viewModel.dismiss.asObservable()
+            .subscribe(onNext: { _ in
+                navVC.dismiss(animated: true, completion: nil)
+            }).disposed(by: self.disposeBag)
+        
+        self.navigationController.visibleViewController?.present(navVC, animated: true, completion: nil)
     }
-    
-    
-   
     
     deinit {
         plog(RootCoordinator.self)

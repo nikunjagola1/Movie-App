@@ -74,5 +74,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="nex-Ru-f0Y">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" id="mzQ-Rr-Bl5" customClass="SearchViewController" customModule="Movie_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m15-yz-9pN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gua-tM-bnZ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="gLX-tU-M8R">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gLX-tU-M8R" id="nEV-0p-77h">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Gua-tM-bnZ" firstAttribute="leading" secondItem="PIx-rh-YGw" secondAttribute="leading" id="Zoh-IH-s3M"/>
+                            <constraint firstItem="PIx-rh-YGw" firstAttribute="bottom" secondItem="Gua-tM-bnZ" secondAttribute="bottom" id="dDy-n1-9WR"/>
+                            <constraint firstItem="PIx-rh-YGw" firstAttribute="trailing" secondItem="Gua-tM-bnZ" secondAttribute="trailing" id="ifh-un-FK6"/>
+                            <constraint firstItem="Gua-tM-bnZ" firstAttribute="top" secondItem="PIx-rh-YGw" secondAttribute="top" id="oXV-YG-R9a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PIx-rh-YGw"/>
+                    </view>
+                    <connections>
+                        <outlet property="tblHistory" destination="Gua-tM-bnZ" id="Udz-tg-IRc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BcU-4e-6FR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1335" y="26"/>
+        </scene>
     </scenes>
 </document>

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C704C5D21E616A20075A67A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C704C5C21E616A20075A67A /* SearchViewModel.swift */; };
+		0C704C5F21E621D30075A67A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C704C5E21E621D30075A67A /* Colors.swift */; };
+		0C704C6221E634A10075A67A /* SearchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C704C6121E634A10075A67A /* SearchHistory.swift */; };
 		0C8EF0C721E5C1DA00294632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EF0C621E5C1DA00294632 /* AppDelegate.swift */; };
 		0C8EF0C921E5C1DA00294632 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EF0C821E5C1DA00294632 /* HomeViewController.swift */; };
 		0C8EF0CC21E5C1DB00294632 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C8EF0CA21E5C1DB00294632 /* Main.storyboard */; };
@@ -34,10 +37,14 @@
 		0C8EF11121E5F03700294632 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EF11021E5F03700294632 /* AppCoordinator.swift */; };
 		0C8EF11321E5F0A800294632 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EF11221E5F0A800294632 /* RootCoordinator.swift */; };
 		0C8EF11521E5F3E400294632 /* Extension+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EF11421E5F3E400294632 /* Extension+UIKit.swift */; };
+		0C8EF11921E6157900294632 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EF11821E6157900294632 /* SearchViewController.swift */; };
 		2DF3E1E99A586AE9C501B245 /* Pods_Movie_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D207EAD388A073987D0720 /* Pods_Movie_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C704C5C21E616A20075A67A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		0C704C5E21E621D30075A67A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		0C704C6121E634A10075A67A /* SearchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistory.swift; sourceTree = "<group>"; };
 		0C8EF0C321E5C1DA00294632 /* Movie_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movie_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C8EF0C621E5C1DA00294632 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C8EF0C821E5C1DA00294632 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +74,7 @@
 		0C8EF11021E5F03700294632 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0C8EF11221E5F0A800294632 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		0C8EF11421E5F3E400294632 /* Extension+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIKit.swift"; sourceTree = "<group>"; };
+		0C8EF11821E6157900294632 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		51C5892573635752823868B0 /* Pods-Movie_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie_App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Movie_App/Pods-Movie_App.debug.xcconfig"; sourceTree = "<group>"; };
 		84D207EAD388A073987D0720 /* Pods_Movie_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movie_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F258183F198B7CBCEAE32F2B /* Pods-Movie_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie_App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movie_App/Pods-Movie_App.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C704C6021E633910075A67A /* SearchHistory */ = {
+			isa = PBXGroup;
+			children = (
+				0C704C6121E634A10075A67A /* SearchHistory.swift */,
+			);
+			path = SearchHistory;
+			sourceTree = "<group>";
+		};
 		0C8EF0BA21E5C1DA00294632 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +178,7 @@
 		0C8EF0E021E5C3FB00294632 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0C704C6021E633910075A67A /* SearchHistory */,
 				0C8EF0ED21E5DF9A00294632 /* API */,
 			);
 			path = Services;
@@ -197,6 +214,7 @@
 		0C8EF0E421E5C4F000294632 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				0C704C5E21E621D30075A67A /* Colors.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -261,6 +279,8 @@
 		0C8EF11721E613D800294632 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				0C8EF11821E6157900294632 /* SearchViewController.swift */,
+				0C704C5C21E616A20075A67A /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -429,9 +449,13 @@
 				0C8EF10321E5EE3F00294632 /* BaseCoordinator.swift in Sources */,
 				0C8EF0F621E5DFC000294632 /* API.swift in Sources */,
 				0C8EF0FF21E5E6EE00294632 /* Extensions+Dictionary.swift in Sources */,
+				0C8EF11921E6157900294632 /* SearchViewController.swift in Sources */,
+				0C704C6221E634A10075A67A /* SearchHistory.swift in Sources */,
 				0C8EF11521E5F3E400294632 /* Extension+UIKit.swift in Sources */,
 				0C8EF10621E5EE9600294632 /* BaseViewController.swift in Sources */,
+				0C704C5D21E616A20075A67A /* SearchViewModel.swift in Sources */,
 				0C8EF0FB21E5E36C00294632 /* HomeMovieListResopnse.swift in Sources */,
+				0C704C5F21E621D30075A67A /* Colors.swift in Sources */,
 				0C8EF10A21E5EF1200294632 /* ActivityIndicatior.swift in Sources */,
 				0C8EF0C721E5C1DA00294632 /* AppDelegate.swift in Sources */,
 			);

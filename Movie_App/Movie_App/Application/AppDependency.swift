@@ -18,13 +18,19 @@ protocol HasAPI {
     var api: API { get }
 }
 
-class AppDependency: HasWindow, HasAPI {
+protocol HasSearchHistory {
+    var searchHistory: SearchHistory { get }
+}
+
+class AppDependency: HasWindow, HasAPI, HasSearchHistory {
     
     let window: UIWindow
     let api: API
+    let searchHistory: SearchHistory
     
     init(window: UIWindow) {
         self.window = window
         self.api = API.shared
+        self.searchHistory = SearchHistory()
     }
 }
