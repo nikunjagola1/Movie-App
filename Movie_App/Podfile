@@ -22,4 +22,5 @@ target 'Movie_App' do
 # PagerView
   pod 'FSPagerView'
 
+
 end

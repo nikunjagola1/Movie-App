@@ -25,8 +25,6 @@ class HomeMovieListResopnse: Codable{
                         if let movie = try? JSONDecoder().decode(Movie.self, from: movieData) {
                             self.results.append(movie)
                         }
-                    } catch (let error) {
-                        print(error)
                     }
                 }
             }

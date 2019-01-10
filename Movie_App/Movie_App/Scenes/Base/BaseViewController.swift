@@ -65,17 +65,21 @@ extension NavigationProtocol where Self: BaseViewController{
         self.title = title
         if leftTitle != nil{
             let leftButton = UIBarButtonItem.init(title: leftTitle, style: .plain, target: self, action: #selector(self.leftBarButtonDidTapped))
+            leftButton.tintColor = .black
             self.navigationItem.leftBarButtonItem = leftButton
         }else if leftButtonImage != nil{
             let leftButton = UIBarButtonItem.init(image: leftButtonImage, style: .plain, target: self, action: #selector(self.leftBarButtonDidTapped))
+            leftButton.tintColor = .black
             self.navigationItem.leftBarButtonItem = leftButton
         }
         
         if rightTitle != nil{
             let rightButton = UIBarButtonItem.init(title: rightTitle, style: .plain, target: self, action: #selector(self.rightBarButtonDidTapped))
+            rightButton.tintColor = .black
             self.navigationItem.rightBarButtonItem = rightButton
         }else if rightButtonImage != nil{
             let rightButton = UIBarButtonItem.init(image: rightButtonImage, style: .plain, target: self, action: #selector(self.rightBarButtonDidTapped))
+            rightButton.tintColor = .black
             self.navigationItem.rightBarButtonItem = rightButton
         }
     }

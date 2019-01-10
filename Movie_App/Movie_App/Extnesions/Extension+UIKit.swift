@@ -172,3 +172,13 @@ extension UIView {
         self.layer.shadowPath = path.cgPath
     }
 }
+extension Double{
+    func rounded(to decimals: Int) -> String{
+        let amount = self
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = decimals
+        let formattedAmount = formatter.string(from: amount as NSNumber)!
+        return formattedAmount
+    }
+}

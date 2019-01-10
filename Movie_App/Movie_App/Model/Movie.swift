@@ -24,6 +24,13 @@ class Movie: Codable{
         return gernes.map({$0.name ?? ""}).joined(separator: ", ")
     }
     
+    var releaseDateString: String{
+        let date = Date.init(timeIntervalSince1970: TimeInterval.init(releaseDate ?? 0))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        return dateFormatter.string(from: date)
+    }
+    
     class Genre: Codable{
         var name: String?
     }

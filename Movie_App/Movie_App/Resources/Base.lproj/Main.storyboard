@@ -146,14 +146,22 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3qr-1r-fJB">
-                                <rect key="frame" x="0.0" y="70" width="187.5" height="2"/>
-                                <color key="backgroundColor" red="0.70196078431372544" green="0.84313725490196079" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="70" width="187.5" height="3"/>
+                                <color key="backgroundColor" red="0.087933394160583947" green="0.8135409957778732" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="Vtl-hI-1g6"/>
+                                    <constraint firstAttribute="height" constant="3" id="Vtl-hI-1g6"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.087933394160583947" green="0.8135409957778732" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZp-mh-Mgb">
-                                <rect key="frame" x="0.0" y="72" width="375" height="595"/>
+                                <rect key="frame" x="0.0" y="73" width="375" height="594"/>
                                 <connections>
                                     <segue destination="Ayt-59-USi" kind="embed" id="lP8-VU-ojN"/>
                                 </connections>
@@ -169,7 +177,7 @@
                             <constraint firstItem="bgd-4V-cj5" firstAttribute="trailing" secondItem="MGo-3U-YuN" secondAttribute="trailing" id="cic-gy-Be3"/>
                             <constraint firstItem="3qr-1r-fJB" firstAttribute="width" secondItem="bvj-Ir-Vux" secondAttribute="width" multiplier="0.5" id="l2z-xz-Bo8"/>
                             <constraint firstItem="bgd-4V-cj5" firstAttribute="trailing" secondItem="cZp-mh-Mgb" secondAttribute="trailing" id="pI1-8J-FNO"/>
-                            <constraint firstItem="bgd-4V-cj5" firstAttribute="bottom" secondItem="cZp-mh-Mgb" secondAttribute="bottom" id="tXg-9F-rHi"/>
+                            <constraint firstAttribute="bottom" secondItem="cZp-mh-Mgb" secondAttribute="bottom" id="tXg-9F-rHi"/>
                             <constraint firstItem="cZp-mh-Mgb" firstAttribute="leading" secondItem="bgd-4V-cj5" secondAttribute="leading" id="zEv-Tf-cY6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bgd-4V-cj5"/>

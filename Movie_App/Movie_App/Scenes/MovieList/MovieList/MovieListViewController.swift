@@ -15,6 +15,7 @@ class MovieListViewController: BaseViewController {
         didSet{
             let nibName = UINib(nibName: "MovieListTableViewCell", bundle:nil)
             self.tblMovieList.register(nibName, forCellReuseIdentifier: "MovieListTableViewCell")
+            self.tblMovieList.tableFooterView = UIView()
         }
     }
 
