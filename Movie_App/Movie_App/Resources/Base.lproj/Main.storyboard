@@ -19,8 +19,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Mz-1Y-lrR">
-                                <rect key="frame" x="15" y="35" width="54.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="15" y="35" width="57" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -44,7 +44,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DB9-Sf-bPm">
                                 <rect key="frame" x="15" y="437.5" width="345" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -190,6 +190,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bgd-4V-cj5"/>
                     </view>
+                    <navigationItem key="navigationItem" id="clx-zs-2Np">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="5S4-wM-XsC"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="btnCommingSoon" destination="d5R-Tn-FPN" id="cr5-fO-2Lz"/>
                         <outlet property="btnNowShowing" destination="V0z-5Z-Mnx" id="u3T-xR-SnF"/>
@@ -198,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RpH-DD-4v6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1580" y="134"/>
+            <point key="canvasLocation" x="2519.1999999999998" y="133.5832083958021"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="GAO-yI-kRA">
@@ -206,7 +209,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Ayt-59-USi" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aoE-B8-wuk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2274" y="133"/>
+            <point key="canvasLocation" x="3212" y="132.23388305847078"/>
         </scene>
         <!--Movie List View Controller-->
         <scene sceneID="fxR-7c-Lvg">
@@ -236,7 +239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MkE-G9-eHe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2989" y="131"/>
+            <point key="canvasLocation" x="3927.1999999999998" y="130.88455772113943"/>
         </scene>
     </scenes>
 </document>

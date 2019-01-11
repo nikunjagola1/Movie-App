@@ -17,8 +17,11 @@ class SearchViewModel: BaseViewModel{
     private let dependencies: Dependencies
     
     //Data
+    private var arrKeywords  : [String]
+    private var filtteredKeywords : BehaviorRelay<[String]> = BehaviorRelay(value: [])
     var searchHistory: Observable<[String]>
     var searchString : BehaviorRelay<String>   = BehaviorRelay(value: "")
+    
     
     //Action
     let dismiss = PublishSubject<Void>()
@@ -27,11 +30,23 @@ class SearchViewModel: BaseViewModel{
     
     init(dependencies: Dependencies){
         self.dependencies = dependencies
-        self.searchHistory = dependencies.searchHistory.arrKeyword.asObservable()
+        self.arrKeywords = dependencies.searchHistory.arrKeyword.value
+        self.filtteredKeywords.accept(dependencies.searchHistory.arrKeyword.value)
+        self.searchHistory = filtteredKeywords.asObservable()
         super.init()
         self.searchDidTapped.asObservable().subscribe(onNext: {[weak self] _ in
             guard let `self` = self else {return}
             self.dependencies.searchHistory.insert(self.searchString.value)
+        }).disposed(by: self.disposeBag)
+        self.searchString.asObservable().subscribe(onNext: { [weak self] _ in
+            guard let `self` = self else {return}
+            let trimmedString = self.searchString.value.trimmingCharacters(in: .whitespaces).lowercased()
+            if trimmedString != ""{
+                   let filterArray = self.arrKeywords.filter({$0.lowercased().contains(trimmedString.lowercased())})
+                self.filtteredKeywords.accept(filterArray)
+            }else{
+                self.filtteredKeywords.accept(dependencies.searchHistory.arrKeyword.value)
+            }
         }).disposed(by: self.disposeBag)
     }
     

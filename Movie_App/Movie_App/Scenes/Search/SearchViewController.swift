@@ -23,15 +23,10 @@ class SearchViewController: BaseViewController {
     private lazy var searchBar: UISearchBar = {
         let searchbar = UISearchBar()
         searchbar.showsCancelButton = true
-        if let txfSearchField = searchbar.value(forKey: "_searchField") as? UITextField {
-            txfSearchField.borderStyle = .none
-            txfSearchField.backgroundColor = .white
-            txfSearchField.cornerRadius = 15
-            txfSearchField.rx.controlEvent([.editingDidEndOnExit])
-                .bind(to: viewModel.searchDidTapped)
-                .disposed(by: disposeBag)
-        }
         searchbar.tintColor = Colors.white
+        if let txfSearchField = searchbar.value(forKey: "_searchField") as? UITextField {
+           self.setupTF(textField: txfSearchField)
+        }
         searchbar.placeholder = "Search Movie"
         return searchbar
     }()
@@ -79,6 +74,19 @@ extension SearchViewController{
             .rx
             .modelSelected(String.self)
             .bind(to: viewModel.selectedKeyword)
+            .disposed(by: disposeBag)
+    }
+    private func setupTF(textField: UITextField){
+        textField.borderStyle = .none
+        textField.backgroundColor = .white
+        textField.tintColor = Colors.blue
+        textField.cornerRadius = 15
+        if let view = textField.leftView as? UIImageView{
+            view.frame = CGRect.init(x: 0, y: 0, width: 24, height: 14)
+            view.contentMode = .left
+        }
+        textField.rx.controlEvent([.editingDidEndOnExit])
+            .bind(to: viewModel.searchDidTapped)
             .disposed(by: disposeBag)
     }
 }

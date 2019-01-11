@@ -41,6 +41,7 @@ extension MovieListViewController{
 
     private func setupUI(){
         self.tblMovieList.rowHeight = UITableView.automaticDimension
+        self.navigationController?.navigationBar.backItem?.title = "Back "
     }
 
     private func setupBinding(viewModel: MovieListViewModel){

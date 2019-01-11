@@ -47,7 +47,6 @@ class BaseViewController: UIViewController, ActivityIndicatorViewable,Navigation
     func rightBarButtonDidTapped() {
         baseViewModel?.rightBarButtonDidTapped.onNext(())
     }
-    
 }
 
 @objc protocol NavigationProtocol {
@@ -66,6 +65,10 @@ extension NavigationProtocol where Self: BaseViewController{
             let leftButton = UIBarButtonItem.init(image: leftButtonImage, style: .plain, target: self, action: #selector(self.leftBarButtonDidTapped))
             leftButton.tintColor = .black
             self.navigationItem.leftBarButtonItem = leftButton
+        }else{
+            let backButton = UIBarButtonItem()
+            backButton.title = "Back"
+            self.navigationController!.navigationBar.topItem!.backBarButtonItem = backButton
         }
         if rightTitle != nil{
             let rightButton = UIBarButtonItem.init(title: rightTitle, style: .plain, target: self, action: #selector(self.rightBarButtonDidTapped))

@@ -24,7 +24,6 @@ class HomeViewController: BaseViewController {
             self.moviesFSPagerView.isInfinite = true
             self.moviesFSPagerView.interitemSpacing = 0
             self.moviesFSPagerView.contentMode = .scaleAspectFit
-            self.moviesFSPagerView.automaticSlidingInterval = 5.0
             let transformer = FSPagerViewTransformer.init(type: .linear)
             transformer.minimumScale = 0.95
             transformer.minimumAlpha = 1.0
@@ -64,6 +63,10 @@ extension HomeViewController{
                 self.lblMovieTitle.text = self.viewModel.movies.value.first?.title ?? ""
                 self.lblMovieType.text = self.viewModel.movies.value.first?.genrnString ?? ""
                 self.selectedIndex = 0
+                if let cell = self.moviesFSPagerView.cellForItem(at: 0){
+                    cell.isSelected = true
+                }
+                self.moviesFSPagerView.automaticSlidingInterval = 5.0
         }).disposed(by: disposeBag)
     }
     

@@ -38,7 +38,6 @@ class RootCoordinator: Coordinator<Void>{
                 //self.showMovieListScreen()
                 self.showSearchScreen()
             }).disposed(by: disposeBag)
-        
         self.navigationController.pushViewController(viewController, animated: true)
     }
     
