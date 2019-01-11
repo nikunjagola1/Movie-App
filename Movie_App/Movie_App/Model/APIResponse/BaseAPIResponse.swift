@@ -1,5 +1,5 @@
 //
-//  HomeMovieListResopnse.swift
+//  BaseAPIResponse.swift
 //  Movie_App
 //
 //  Created by MAC110 on 1/9/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HomeMovieListResopnse: Codable{
+class BaseAPIResponse: Codable{
     var success: Bool?
     var results: [Movie] = []
     init(response: [String:Any]?){

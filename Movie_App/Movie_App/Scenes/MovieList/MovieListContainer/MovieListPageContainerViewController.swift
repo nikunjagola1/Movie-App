@@ -35,7 +35,7 @@ extension MovieListPageContainerViewController{
         self.setupBinding(viewModel: self.viewModel)
     }
     private func setupUI(){
-        self.configureNavigationWithTitle(title: "Movies")
+        self.configureNavigationWithTitle(title: "")
     }
     private func setupBinding(viewModel: MovieListPageContainerViewModel){
         super.setupBindingForBaseViewModel(viewModel: viewModel)
@@ -70,6 +70,8 @@ extension MovieListPageContainerViewController{
     func moveDeviderToIndex(index: Int) {
         DispatchQueue.main.async { [weak self] in
             guard let `self` = self else {return}
+            self.btnNowShowing.isSelected = index == 0
+            self.btnCommingSoon.isSelected = index == 1
             UIView.animate(withDuration: 0.3, animations: {
                 let x = CGFloat(index) * (Screen.width * 0.5)
                 self.vwDivider.frame.origin.x = x

@@ -20,19 +20,25 @@ class SearchHistory{
     
     private func read(){
         let keywords = UserDefaults.standard.string(forKey: "kSearchHistory") ?? ""
-        let _arrKeyword = keywords.components(separatedBy: ",")
-        self.arrKeyword.accept(_arrKeyword)
+        if keywords == "" {
+            self.arrKeyword.accept([])
+        }else{
+            let _arrKeyword = keywords.components(separatedBy: ",")
+            self.arrKeyword.accept(_arrKeyword)
+        }
     }
     
-    private func store(){
+    private func store() {
         UserDefaults.standard.set(arrKeyword.value.joined(separator: ","), forKey: "kSearchHistory")
         UserDefaults.standard.synchronize()
     }
     
-    func insert(_ keyword: String){
-        
+    func insert(_ keyword: String) {
+        if keyword.trimmingCharacters(in: .whitespaces) == ""{
+            return
+        }
         var _arrKeywords = self.arrKeyword.value
-        if _arrKeywords.contains(keyword){
+        if _arrKeywords.contains(keyword) {
             _arrKeywords = _arrKeywords.filter({$0 != keyword})
         }
         _arrKeywords.insert(keyword, at: 0)
@@ -40,7 +46,7 @@ class SearchHistory{
         self.store()
     }
     
-    func remove(_ keyword: String){
+    func remove(_ keyword: String) {
         let _arrKeyword = self.arrKeyword.value
         self.arrKeyword.accept(_arrKeyword.filter({$0 != keyword}))
         self.store()

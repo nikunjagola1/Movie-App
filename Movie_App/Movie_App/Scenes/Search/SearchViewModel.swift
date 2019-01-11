@@ -21,8 +21,9 @@ class SearchViewModel: BaseViewModel{
     var searchString : BehaviorRelay<String>   = BehaviorRelay(value: "")
     
     //Action
-    var dismiss = PublishSubject<Void>()
-    var searchDidTapped = PublishSubject<Void>()
+    let dismiss = PublishSubject<Void>()
+    let searchDidTapped = PublishSubject<Void>()
+    let selectedKeyword = PublishSubject<String?>()
     
     init(dependencies: Dependencies){
         self.dependencies = dependencies
@@ -31,7 +32,6 @@ class SearchViewModel: BaseViewModel{
         self.searchDidTapped.asObservable().subscribe(onNext: {[weak self] _ in
             guard let `self` = self else {return}
             self.dependencies.searchHistory.insert(self.searchString.value)
-            self.searchString.accept("")
         }).disposed(by: self.disposeBag)
     }
     

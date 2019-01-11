@@ -23,18 +23,33 @@ class API {
     }
     
     // Call Get Movie List API
-    func getHomeMovieList() -> Observable<APIResult<HomeMovieListResopnse>> {
+    func getHomeMovieList() -> Observable<APIResult<BaseAPIResponse>> {
         
-        return API.handleDataRequest(dataRequest: APIManager.shared.requestObservable(api: APIRouter.searchMovie)).map({ (response) -> APIResult<HomeMovieListResopnse> in
+        return API.handleDataRequest(dataRequest: APIManager.shared.requestObservable(api: APIRouter.homeMovieList)).map({ (response) -> APIResult<BaseAPIResponse> in
             let isSuccessfullTuple = API.isAPISuccessful(response: response)
             if !isSuccessfullTuple.0{
                 return APIResult.failure(error: isSuccessfullTuple.1!)
             }
-            let apiResponse = HomeMovieListResopnse(response: response)
+            let apiResponse = BaseAPIResponse(response: response)
             let (apiStatus, _) = (true, APICallError.init(status: .success))
             if apiStatus { return APIResult.success(value: apiResponse) }
         })
     }
+    
+    func searchMovieAPI(keyword: String,pageNumber: Int,type: String) -> Observable<APIResult<BaseAPIResponse>> {
+        return API.handleDataRequest(dataRequest: APIManager.shared.requestObservable(api: APIRouter.searchMovie(keyword: keyword, pageNumber: pageNumber, type: type))).map({ (response) -> APIResult<BaseAPIResponse> in
+            let isSuccessfullTuple = API.isAPISuccessful(response: response)
+            if !isSuccessfullTuple.0{
+                return APIResult.failure(error: isSuccessfullTuple.1!)
+            }
+            let apiResponse = BaseAPIResponse(response: response)
+            let (apiStatus, _) = (true, APICallError.init(status: .success))
+            if apiStatus { return APIResult.success(value: apiResponse) }
+        })
+    }
+    
+    
+    
     
     private static func handleDataRequest(dataRequest: Observable<DataRequest>) -> Observable<[String:Any]?> {
 

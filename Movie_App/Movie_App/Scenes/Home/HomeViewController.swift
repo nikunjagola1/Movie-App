@@ -14,18 +14,21 @@ import RxCocoa
 class HomeViewController: BaseViewController {
 
     var viewModel: HomeViewModel!
-    
-    
+    var selectedIndex: Int = 0
     
     @IBOutlet weak private var moviesFSPagerView: FSPagerView!{
         didSet {
             let nibName = UINib(nibName: "HomeMovieCollectionViewCell", bundle:nil)
             self.moviesFSPagerView.register(nibName, forCellWithReuseIdentifier: "HomeMovieCollectionViewCell")
-            self.moviesFSPagerView.itemSize = CGSize(width: 200, height: 300)
+            self.moviesFSPagerView.itemSize = CGSize(width: 270, height: 300)
             self.moviesFSPagerView.isInfinite = true
-            self.moviesFSPagerView.interitemSpacing = 20
+            self.moviesFSPagerView.interitemSpacing = 0
             self.moviesFSPagerView.contentMode = .scaleAspectFit
-            self.moviesFSPagerView.automaticSlidingInterval = 3.0
+            self.moviesFSPagerView.automaticSlidingInterval = 5.0
+            let transformer = FSPagerViewTransformer.init(type: .linear)
+            transformer.minimumScale = 0.95
+            transformer.minimumAlpha = 1.0
+            self.moviesFSPagerView.transformer = transformer
         }
     }
     
@@ -48,7 +51,7 @@ extension HomeViewController{
         viewModel.callHomeMovieListAPI()
     }
     private func setupUI(){
-        self.configureNavigationWithTitle(title: "Home", rightButtonImage: UIImage(named: "search"))
+        self.configureNavigationWithTitle(title: "Movie", rightButtonImage: UIImage(named: "search"))
     }
     private func setupBinding(viewModel: HomeViewModel){
         super.setupBindingForBaseViewModel(viewModel: viewModel)
@@ -59,6 +62,8 @@ extension HomeViewController{
             guard let `self` = self else {return}
             self.moviesFSPagerView.reloadData()
                 self.lblMovieTitle.text = self.viewModel.movies.value.first?.title ?? ""
+                self.lblMovieType.text = self.viewModel.movies.value.first?.genrnString ?? ""
+                self.selectedIndex = 0
         }).disposed(by: disposeBag)
         
     }
@@ -79,5 +84,13 @@ extension HomeViewController: FSPagerViewDelegate, FSPagerViewDataSource{
         let page = pagerView.currentIndex
         self.lblMovieTitle.text = self.viewModel.movies.value[Int(page)].title ?? ""
         self.lblMovieType.text = self.viewModel.movies.value[Int(page)].genrnString
+        pagerView.cellForItem(at: selectedIndex)?.isSelected = false
+        self.selectedIndex = page
+        pagerView.cellForItem(at: page)?.isSelected = true
     }
+    func pagerView(_ pagerView: FSPagerView, didEndDisplaying cell: FSPagerViewCell, forItemAt index: Int) {
+        cell.isSelected = false
+    }
+    
 }
+

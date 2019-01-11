@@ -16,6 +16,7 @@ class BaseViewModel {
     let alertDialog = PublishSubject<(String,String)>()
     let isLoading: ActivityIndicator = ActivityIndicator()
     
+    //NavigationBar Actions
     let leftBarButtonDidTapped = PublishSubject<Void>()
     let rightBarButtonDidTapped = PublishSubject<Void>()
 }

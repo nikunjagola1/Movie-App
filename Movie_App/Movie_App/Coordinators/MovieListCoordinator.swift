@@ -12,11 +12,13 @@ import RxSwift
 import UIKit
 
 class MovieListCoordinator: Coordinator<Void>{
+    
     typealias Dependencies = HasAPI
+    private let dependencies: Dependencies
     
     private let navigationController:UINavigationController
-    private let dependencies: Dependencies
     private let searchString: String
+    
     init(navigationController:UINavigationController, dependencies: Dependencies, searchString: String) {
         self.navigationController = navigationController
         self.dependencies = dependencies
@@ -42,7 +44,6 @@ class MovieListCoordinator: Coordinator<Void>{
         let viewController = UIStoryboard.main.movieListViewController
         viewController.viewModel = viewModel
         return viewController
-        
     }
     
     deinit {

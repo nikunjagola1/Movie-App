@@ -17,40 +17,46 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeMovieCollectionViewCell" id="gTV-IL-0wX" customClass="HomeMovieCollectionViewCell" customModule="Movie_App" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="310"/>
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeMovieCollectionViewCell" id="gTV-IL-0wX" customClass="HomeMovieCollectionViewCell" customModule="Movie_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="200" height="310"/>
+                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ir4-MQ-b5b">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="310"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6X9-tX-sua">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="310"/>
+                                <rect key="frame" x="35" y="0.0" width="230" height="300"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kX1-FG-Ayx">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="295"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="230" height="300"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="7.5"/>
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="djy-1D-n3J">
-                                        <rect key="frame" x="0.0" y="280" width="200" height="30"/>
+                                        <rect key="frame" x="0.0" y="260" width="230" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BUY TICKET" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWr-rx-c9t">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="230" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                 <color key="textColor" red="0.51764705882352935" green="0.61568627450980395" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.10196078431372549" green="0.17254901960784313" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="2ZP-Sz-w4m"/>
+                                            <constraint firstAttribute="height" constant="40" id="2ZP-Sz-w4m"/>
                                             <constraint firstAttribute="trailing" secondItem="vWr-rx-c9t" secondAttribute="trailing" id="ASt-E4-KSW"/>
                                             <constraint firstAttribute="bottom" secondItem="vWr-rx-c9t" secondAttribute="bottom" id="DOd-Xf-x2e"/>
                                             <constraint firstItem="vWr-rx-c9t" firstAttribute="top" secondItem="djy-1D-n3J" secondAttribute="top" id="DoJ-Ok-Zyz"/>
@@ -83,28 +89,25 @@
                                     <constraint firstItem="1oy-aX-3f2" firstAttribute="top" secondItem="6X9-tX-sua" secondAttribute="top" constant="15" id="Fja-iP-EC1"/>
                                     <constraint firstItem="1oy-aX-3f2" firstAttribute="leading" secondItem="6X9-tX-sua" secondAttribute="leading" constant="15" id="NsL-uK-AfK"/>
                                     <constraint firstItem="kX1-FG-Ayx" firstAttribute="top" secondItem="6X9-tX-sua" secondAttribute="top" id="qU1-qH-FH8"/>
-                                    <constraint firstAttribute="bottom" secondItem="kX1-FG-Ayx" secondAttribute="bottom" constant="15" id="tYe-Bc-Xfk"/>
+                                    <constraint firstAttribute="bottom" secondItem="kX1-FG-Ayx" secondAttribute="bottom" id="tYe-Bc-Xfk"/>
                                     <constraint firstAttribute="trailing" secondItem="kX1-FG-Ayx" secondAttribute="trailing" id="vCz-P6-nq0"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="7.5"/>
+                                        <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6X9-tX-sua" firstAttribute="leading" secondItem="Ir4-MQ-b5b" secondAttribute="leading" id="4ac-O0-nGa"/>
+                            <constraint firstItem="6X9-tX-sua" firstAttribute="leading" secondItem="Ir4-MQ-b5b" secondAttribute="leading" constant="35" id="5s2-ZS-KZR"/>
                             <constraint firstAttribute="bottom" secondItem="6X9-tX-sua" secondAttribute="bottom" id="Fzf-dc-r9N"/>
                             <constraint firstItem="6X9-tX-sua" firstAttribute="top" secondItem="Ir4-MQ-b5b" secondAttribute="top" id="TL7-PQ-eNQ"/>
-                            <constraint firstAttribute="trailing" secondItem="6X9-tX-sua" secondAttribute="trailing" id="WDB-AD-TI1"/>
+                            <constraint firstAttribute="trailing" secondItem="6X9-tX-sua" secondAttribute="trailing" constant="35" id="rsZ-f7-2uh"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -126,10 +129,12 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
+                <outlet property="buyTktBottomConstraint" destination="2on-FV-FbL" id="BjA-GS-F5D"/>
                 <outlet property="imgVwPoster" destination="kX1-FG-Ayx" id="eXt-7z-Yqi"/>
                 <outlet property="lblPreSale" destination="1oy-aX-3f2" id="rZ2-o2-PT4"/>
-                <outlet property="vwBuyTicket" destination="vWr-rx-c9t" id="CdE-SA-5FQ"/>
+                <outlet property="vwBuyTicket" destination="djy-1D-n3J" id="ZIv-mG-VpU"/>
             </connections>
+            <point key="canvasLocation" x="132.80000000000001" y="154.72263868065968"/>
         </collectionViewCell>
     </objects>
 </document>

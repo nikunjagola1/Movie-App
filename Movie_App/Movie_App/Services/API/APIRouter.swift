@@ -8,31 +8,29 @@
 
 import Foundation
 import Alamofire
-//https://easy-mock.com/mock/5c19c6ff64b4573fc81a61f3/movieapp/search?keyword=Thor&type=comingsoon&offset=1
-
 
 enum APIRouter:URLRequestConvertible {
     
-    case getHomeMovieList
-    case searchMovie
+    case homeMovieList
+    case searchMovie(keyword: String,pageNumber: Int,type: String)
     
     func asURLRequest() throws -> URLRequest {
         
         var method: HTTPMethod {
             switch self {
-            case .getHomeMovieList,.searchMovie:
+            case .homeMovieList,.searchMovie:
                 return .get
             }
         }
         
         let params: ([String: Any]?) = {
             switch self {
-            case .getHomeMovieList:
+            case .homeMovieList:
                 return nil
-            case .searchMovie:
-                return ["keyword":"Thor",
-                        "type": "comingsoon",
-                    "offset": 1
+            case .searchMovie(let keyword, let pageNumber, let type):
+                return ["keyword":keyword,
+                        "type": type,
+                    "offset": pageNumber
                 ]
             }
         }()
@@ -46,17 +44,13 @@ enum APIRouter:URLRequestConvertible {
 
             let relativePath: String? = {
                 switch self {
-                case .getHomeMovieList:
+                case .homeMovieList:
                     return "home"
-                
                 case .searchMovie:
                     return "loadmore"
                 }
             }()
-            
-            
             let urlWithAPIVersion = baseURL
-
             var url = URL(string: urlWithAPIVersion)!
             if let relativePath = relativePath {
                 url = url.appendingPathComponent(relativePath)

@@ -12,10 +12,11 @@ import UIKit
 import RxCocoa
 
 class RootCoordinator: Coordinator<Void>{
+    
     typealias Dependencies = HasWindow & HasAPI & HasSearchHistory
+    private let dependencies: Dependencies
     
     private let navigationController:UINavigationController
-    private let dependencies: Dependencies
     
     init(navigationController:UINavigationController, dependencies: Dependencies) {
         self.navigationController = navigationController
@@ -31,7 +32,6 @@ class RootCoordinator: Coordinator<Void>{
         let viewModel = HomeViewModel.init(dependencies: self.dependencies)
         let viewController = UIStoryboard.main.homeViewController
         viewController.viewModel = viewModel
-        
         viewModel.rightBarButtonDidTapped.asObservable()
             .subscribe(onNext: {[weak self] _ in
                 guard let `self` = self else {return}
@@ -58,11 +58,18 @@ class RootCoordinator: Coordinator<Void>{
                     self.showMovieListScreen(searchString: viewModel.searchString.value)
                 })
             }).disposed(by: self.disposeBag)
+        viewModel.selectedKeyword.asObservable()
+            .subscribe(onNext: { [weak self] (keyword) in
+                guard let `self` = self , let keyword = keyword else {return}
+                navVC.dismiss(animated: true, completion: {
+                    self.showMovieListScreen(searchString: keyword)
+                })
+            }).disposed(by: self.disposeBag)
         self.navigationController.visibleViewController?.present(navVC, animated: true, completion: nil)
     }
     
     private func showMovieListScreen(searchString: String){
-        let movieListCoordinator = MovieListCoordinator.init(navigationController: self.navigationController, dependencies: self.dependencies, searchString: "")
+        let movieListCoordinator = MovieListCoordinator.init(navigationController: self.navigationController, dependencies: self.dependencies, searchString: searchString)
         _ = coordinate(to: movieListCoordinator)
     }
     

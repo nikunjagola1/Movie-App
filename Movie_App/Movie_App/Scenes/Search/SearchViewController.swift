@@ -11,8 +11,15 @@ import RxSwift
 import RxCocoa
 
 class SearchViewController: BaseViewController {
+    
     var viewModel: SearchViewModel!
-    @IBOutlet weak private var tblHistory: UITableView!
+    
+    @IBOutlet weak private var tblHistory: UITableView!{
+        didSet{
+            tblHistory.tableFooterView = UIView()
+        }
+    }
+    
     private lazy var searchBar: UISearchBar = {
         let searchbar = UISearchBar()
         searchbar.showsCancelButton = true
@@ -25,6 +32,7 @@ class SearchViewController: BaseViewController {
                 .disposed(by: disposeBag)
         }
         searchbar.tintColor = Colors.white
+        searchbar.placeholder = "Search Movie"
         return searchbar
     }()
     
@@ -45,12 +53,14 @@ extension SearchViewController{
         self.setupUI()
         self.setupBinding(viewModel: self.viewModel)
     }
+    
     private func setupUI(){
         self.navigationController?.navigationBar.barTintColor = Colors.searchNavigationBar
         self.navigationItem.hidesBackButton = true
         self.navigationItem.titleView = searchBar
         self.tblHistory.inputAccessoryView?.backgroundColor = .black
     }
+    
     private func setupBinding(viewModel: SearchViewModel){
         super.setupBindingForBaseViewModel(viewModel: viewModel)
         self.searchBar.rx.cancelButtonClicked
@@ -62,12 +72,17 @@ extension SearchViewController{
         self.viewModel.searchHistory
             .bind(to: tblHistory.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) { row, element, cell in
                 cell.textLabel?.text = element
+                cell.selectionStyle = .none
             }.disposed(by: disposeBag)
         self.tblHistory.rx.itemDeleted.subscribe(onNext: { [weak self] indexPath in
             guard let `self` = self else {return}
             self.viewModel.deleteElement(for: indexPath)
         }).disposed(by: disposeBag)
-        
+        self.tblHistory
+            .rx
+            .modelSelected(String.self)
+            .bind(to: viewModel.selectedKeyword)
+            .disposed(by: disposeBag)
     }
 }
 
