@@ -65,7 +65,7 @@
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRE-SALE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oy-aX-3f2">
                                         <rect key="frame" x="15" y="15" width="70" height="22"/>
-                                        <color key="backgroundColor" red="0.6588235294117647" green="0.70196078431372544" blue="0.086274509803921567" alpha="0.80334739963503654" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.62745098039215685" green="0.51764705882352935" blue="0.33333333333333331" alpha="0.80334739963503654" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="3XA-pP-yL3"/>
                                             <constraint firstAttribute="width" constant="70" id="Arl-sT-jOW"/>
