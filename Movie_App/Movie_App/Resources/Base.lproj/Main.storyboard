@@ -155,7 +155,7 @@
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3qr-1r-fJB">
                                 <rect key="frame" x="0.0" y="70" width="187.5" height="3"/>
-                                <color key="backgroundColor" red="0.12941176469999999" green="0.18039215689999999" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.80470973253250122" green="0.89935070276260376" blue="0.90270501375198364" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="Vtl-hI-1g6"/>
                                 </constraints>

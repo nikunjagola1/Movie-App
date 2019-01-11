@@ -37,7 +37,7 @@ class HomeMovieCollectionViewCell: FSPagerViewCell {
     func configure(movie: Movie){
         vwBuyTicket.isHidden = true
         self.contentView.layer.shadowColor = UIColor.clear.cgColor
-        self.imgVwPoster.downloadImageWithCaching(with: movie.posterPath ?? "")
+        self.imgVwPoster.downloadImageWithCaching(with: movie.posterPath ?? "",placeholderImage: UIImage(named: "video-placeholder"))
         self.lblPreSale.isHidden = !(movie.presaleFlag ?? 0 == 1)
     }
     

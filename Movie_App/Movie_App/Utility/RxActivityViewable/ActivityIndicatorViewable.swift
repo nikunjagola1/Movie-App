@@ -39,6 +39,6 @@ extension ActivityIndicatorViewable where Self: UIViewController {
             containerView = _containerView
         }
         
-        MBProgressHUD.hideAllHUDs(for: containerView, animated: true)
+        MBProgressHUD.hide(for: containerView, animated: true)
     }
 }

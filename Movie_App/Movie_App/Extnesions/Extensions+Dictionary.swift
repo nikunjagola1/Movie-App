@@ -8,9 +8,8 @@
 import Foundation
 
 extension Dictionary {
-    // Tested against ["ab_dsfdsac_dsd_f":"ab_dsfdsac_dsd_f", "__abc_a":"__abc_a", "abc":["ab_dsfdsac_dsd_f":"ab_dsfdsac_dsd_f", "__abc_a":"__abc_a", "ABc_def_De":1, "bc_def_De":UIColor.blue]]
-    
-    /// Underscore Keys to lowerCamelCase keys recursively.
+   
+    // Underscore Keys to lowerCamelCase keys recursively.
     var keysToCamelCase: Dictionary {
         
         let keys = Array(self.keys)
@@ -37,27 +36,15 @@ extension Dictionary {
     }
 }
 extension String {
-    
-    // Tested against ["ab_dsfdsac_dsd_f", nil, "_", "__abc_a", "Ac_C", "abc", "abc_", "_abc", "", "Abc_def_De", "ABc_def_De", "ABC_def_De", "bc_def_De", "ADay", "aDay", "a_Day", "A_Day"]
-    
-    /// Underscore string to lowerCamelCase.
+
+    // Underscore string to lowerCamelCase.
     var underscoreToCamelCase: String {
-        
-        let underscore = CharacterSet(charactersIn: "_")
-        var items: [String] = self.components(separatedBy: underscore)
-        
-        var start: String = items.first ?? ""
-        let first = String(start.characters.prefix(1)).lowercased()
-        let other = String(start.characters.dropFirst())
-        start =  first + other
-        
+        var items = self.components(separatedBy: "_")
+        var camelCase = ""
+        let first = items.first?.lowercased() ?? ""
         items.remove(at: 0)
-        
-        let camelCased: String =  items.reduce(start) { (result, i) -> String in
-            result + i.capitalized
-        }
-        
-        return camelCased
+        camelCase = items.reduce(first, {$0 + $1.capitalizingFirstLetter()})
+        return camelCase
     }
     
     func capitalizingFirstLetter() -> String {

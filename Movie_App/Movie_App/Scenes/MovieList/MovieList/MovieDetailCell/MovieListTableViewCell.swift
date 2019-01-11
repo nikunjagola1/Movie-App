@@ -19,7 +19,7 @@ class MovieListTableViewCell: UITableViewCell {
     @IBOutlet weak var vwRating: FloatRatingView!
     
     func configure(movie: Movie){
-        self.imvPoster.downloadImageWithCaching(with: movie.posterPath ?? "")
+        self.imvPoster.downloadImageWithCaching(with: movie.posterPath ?? "",placeholderImage: UIImage(named: "video-placeholder"))
         self.lblTitle.text = movie.title ?? ""
         self.lblRating.text = String(format: "%.2f", movie.rate ?? 0.0)
         self.lblCertifiicate.text = movie.ageCategory ?? ""
