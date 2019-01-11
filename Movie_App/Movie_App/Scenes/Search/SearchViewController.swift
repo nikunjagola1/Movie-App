@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
-
+import MGSwipeTableCell
 class SearchViewController: BaseViewController {
     
     var viewModel: SearchViewModel!
@@ -70,14 +70,11 @@ extension SearchViewController{
             .bind(to: viewModel.searchString)
             .disposed(by: disposeBag)
         self.viewModel.searchHistory
-            .bind(to: tblHistory.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) { row, element, cell in
+            .bind(to: tblHistory.rx.items(cellIdentifier: "cell", cellType: MGSwipeTableCell.self)) { row, element, cell in
                 cell.textLabel?.text = element
                 cell.selectionStyle = .none
+                cell.delegate = self
             }.disposed(by: disposeBag)
-        self.tblHistory.rx.itemDeleted.subscribe(onNext: { [weak self] indexPath in
-            guard let `self` = self else {return}
-            self.viewModel.deleteElement(for: indexPath)
-        }).disposed(by: disposeBag)
         self.tblHistory
             .rx
             .modelSelected(String.self)
@@ -85,5 +82,32 @@ extension SearchViewController{
             .disposed(by: disposeBag)
     }
 }
-
+extension SearchViewController: MGSwipeTableCellDelegate {
+    func swipeTableCell(_ cell: MGSwipeTableCell, canSwipe direction: MGSwipeDirection) -> Bool {
+        switch direction {
+        case .rightToLeft:
+            return true
+        case .leftToRight:
+            return false
+        }
+    }
+    
+    func swipeTableCell(_ cell: MGSwipeTableCell, swipeButtonsFor direction: MGSwipeDirection, swipeSettings: MGSwipeSettings, expansionSettings: MGSwipeExpansionSettings) -> [UIView]? {
+        
+        guard let indexPath = self.tblHistory.indexPath(for: cell) else {
+            return nil
+        }
+        swipeSettings.transition = MGSwipeTransition.border
+        expansionSettings.buttonIndex = 0
+        expansionSettings.fillOnTrigger = false
+        expansionSettings.threshold = 2
+        let padding = 20
+        let delete = MGSwipeButton(title: "", icon: UIImage(named: "delete"), backgroundColor: .gray, padding: padding) { [weak self] (cell) -> Bool in
+            guard let `self` = self else { return true}
+            self.viewModel.deleteElement(for: indexPath)
+            return true
+        }
+        return [delete]
+    }
+}
 
