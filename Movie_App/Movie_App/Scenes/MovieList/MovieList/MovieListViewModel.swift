@@ -10,8 +10,9 @@ import RxSwift
 import RxCocoa
 
 final class MovieListViewModel: BaseViewModel {
-    typealias Dependencies = HasAPI
+    
     // Dependencies
+    typealias Dependencies = HasAPI
     private let dependencies: Dependencies
     
     //Initial Setup
@@ -44,7 +45,9 @@ final class MovieListViewModel: BaseViewModel {
         }).disposed(by: disposeBag)
     }
 }
+
 extension MovieListViewModel{
+
     func callGetMovieListAPI(){
         let _pageNumber = pageNumber
         self.dependencies.api.searchMovieAPI(keyword: self.searchString,pageNumber: pageNumber,type: launchOption.rawValue)

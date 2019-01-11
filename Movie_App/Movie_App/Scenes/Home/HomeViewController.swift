@@ -35,8 +35,6 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak private var lblMovieTitle : UILabel!
     @IBOutlet weak private var lblMovieType : UILabel!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
@@ -45,17 +43,19 @@ class HomeViewController: BaseViewController {
 
 //MARK: - Setup
 extension HomeViewController{
+    
     private func setup(){
         self.setupUI()
         self.setupBinding(viewModel: self.viewModel)
         viewModel.callHomeMovieListAPI()
     }
+    
     private func setupUI(){
         self.configureNavigationWithTitle(title: "Movie", rightButtonImage: UIImage(named: "search"))
     }
+    
     private func setupBinding(viewModel: HomeViewModel){
         super.setupBindingForBaseViewModel(viewModel: viewModel)
-        
         self.viewModel.movies.asObservable()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: {[weak self] _ in
@@ -65,8 +65,8 @@ extension HomeViewController{
                 self.lblMovieType.text = self.viewModel.movies.value.first?.genrnString ?? ""
                 self.selectedIndex = 0
         }).disposed(by: disposeBag)
-        
     }
+    
 }
 
 //MARK: - FSPagerview Delegate
@@ -80,6 +80,7 @@ extension HomeViewController: FSPagerViewDelegate, FSPagerViewDataSource{
         cell.configure(movie: viewModel.movies.value[index])
         return cell
     }
+    
     func pagerViewDidScroll(_ pagerView: FSPagerView) {
         let page = pagerView.currentIndex
         self.lblMovieTitle.text = self.viewModel.movies.value[Int(page)].title ?? ""
@@ -88,6 +89,7 @@ extension HomeViewController: FSPagerViewDelegate, FSPagerViewDataSource{
         self.selectedIndex = page
         pagerView.cellForItem(at: page)?.isSelected = true
     }
+    
     func pagerView(_ pagerView: FSPagerView, didEndDisplaying cell: FSPagerViewCell, forItemAt index: Int) {
         cell.isSelected = false
     }

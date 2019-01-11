@@ -19,11 +19,6 @@ class BaseViewController: UIViewController, ActivityIndicatorViewable,Navigation
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
     func setupBindingForBaseViewModel(viewModel: BaseViewModel){
         self.baseViewModel = viewModel

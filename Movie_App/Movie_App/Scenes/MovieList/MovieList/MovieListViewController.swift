@@ -33,13 +33,16 @@ class MovieListViewController: BaseViewController {
 
 //MARK: - Setup
 extension MovieListViewController{
+
     private func setup(){
         self.setupUI()
         self.setupBinding(viewModel: self.viewModel)
     }
+
     private func setupUI(){
         self.tblMovieList.rowHeight = UITableView.automaticDimension
     }
+
     private func setupBinding(viewModel: MovieListViewModel){
         super.setupBindingForBaseViewModel(viewModel: viewModel)
         viewModel.movies.asObservable()
@@ -59,7 +62,6 @@ extension MovieListViewController{
             })
             .bind(to: viewModel.callNextPage)
             .disposed(by: disposeBag)
-        
     }
 }
 

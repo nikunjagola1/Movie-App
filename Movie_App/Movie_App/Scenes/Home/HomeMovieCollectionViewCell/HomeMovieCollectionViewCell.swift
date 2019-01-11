@@ -15,11 +15,6 @@ class HomeMovieCollectionViewCell: FSPagerViewCell {
     @IBOutlet weak private var imgVwPoster   : UIImageView!
     @IBOutlet weak var buyTktBottomConstraint: NSLayoutConstraint!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     override var isSelected: Bool{
         didSet{
             if isSelected{

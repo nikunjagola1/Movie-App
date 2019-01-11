@@ -19,13 +19,11 @@ class HomeViewModel: BaseViewModel{
     
     //Data
     var movies: BehaviorRelay<[Movie]> = BehaviorRelay(value: [])
-    
-    
+
     init(dependencies: Dependencies){
         self.dependencies = dependencies
         super.init()
     }
-    
 }
 
 //MARK: API Call
