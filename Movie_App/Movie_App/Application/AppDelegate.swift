@@ -11,6 +11,10 @@ import CoreData
 import RxSwift
 import RxCocoa
 
+import AppCenter
+import AppCenterAnalytics
+import AppCenterCrashes
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -31,6 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
+        
+        MSAppCenter.start("16756a53-f495-4c9d-b29f-eed4fc3c4317",
+                          withServices:[MSAnalytics.self, MSCrashes.self])
         
         // Initialise coordinator to manage navigation flow
         appCoordinator = AppCoordinator(window: window!, navigationController: navigationController)

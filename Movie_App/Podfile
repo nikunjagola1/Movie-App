@@ -24,5 +24,7 @@ target 'Movie_App' do
 
 # MGSwipableCell
   pod 'MGSwipeTableCell'
+  
+  pod 'AppCenter'
 
 end
