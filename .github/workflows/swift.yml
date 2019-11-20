@@ -14,7 +14,7 @@ jobs:
 
         matrix:
 
-          destination: ['platform=iOS Simulator,OS=12.2,name=iPhone X', 'platform=tvOS Simulator,OS=12.2,name=Apple TV 4K']
+          destination: ['platform=iOS Simulator,OS=12.2,name=iPhone X']
 
     steps:
 
@@ -25,10 +25,9 @@ jobs:
       - name: Build and test
 
         run: |
+		cd Movie_App
+	  xcodebuild clean test -scheme Movie_App -workspace Movie_App.xcworkspace -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
 
-          cd Texstyle
-
-          xcodebuild clean test -project Texstyle.xcodeproj -scheme Texstyle -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
 
           bash <(curl -s https://codecov.io/bash)
 
