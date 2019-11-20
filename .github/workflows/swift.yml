@@ -10,7 +10,7 @@ jobs:
           scheme: ['Movie']
     steps:
       - name: Checkout
-        uses: actions/checkout@develop
+        uses: actions/checkout@master
       - name: Build and test
         run: |
           cd Movie_App
