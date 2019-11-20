@@ -22,16 +22,16 @@ class BaseViewController: UIViewController, ActivityIndicatorViewable,Navigation
 
     func setupBindingForBaseViewModel(viewModel: BaseViewModel){
         self.baseViewModel = viewModel
-        viewModel.isLoading
-            .distinctUntilChanged()
-            .drive(onNext: { [weak self] (isLoading) in
-                guard let `self` = self else { return }
-                self.hideActivityIndicator()
-                if isLoading {
-                    self.showActivityIndicator()
-                }
-            })
-            .disposed(by: disposeBag)
+//        viewModel.isLoading
+//            .distinctUntilChanged()
+//            .drive(onNext: { [weak self] (isLoading) in
+//                guard let `self` = self else { return }
+//                self.hideActivityIndicator()
+//                if isLoading {
+//                    self.showActivityIndicator()
+//                }
+//            })
+//            .disposed(by: disposeBag)
         
         viewModel.alertDialog.observeOn(MainScheduler.instance)
             .subscribe(onNext: {[weak self] (title, message) in
